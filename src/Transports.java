@@ -1,39 +1,120 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Transports {
-    ArrayList<Transport> landTransports = new ArrayList<>();
-    ArrayList<Transport> railTransports = new ArrayList<>();
-    ArrayList<Transport> airTransports = new ArrayList<>();
-    ArrayList<Transport> seaTransports = new ArrayList<>();
+public abstract class Transports implements Transport{
+    String entryPoint;
+    String dateOfEntry;
+    String exitPoint;
+    String dateOfExit;
+    String cargo;
+    String personal;
+    String mission;
+    String note;
+    String faxNumber;
+    String TMR;
+    List<Object> transports;
 
+    public Transports(String entryPoint, String dateOfEntry, String exitPoint,
+                      String dateOfExit, String cargo, String personal, String mission,
+                      String note, String faxNumber, String TMR) {
+        this.setEntryPoint(entryPoint);
+        this.setDateOfEntry(dateOfEntry);
+        this.setExitPoint(exitPoint);
+        this.setDateOfExit(dateOfExit);
+        this.setCargo(cargo);
+        this.setPersonal(personal);
+        this.setMission(mission);
+        this.setNote(note);
+        this.setFaxNumber(faxNumber);
+        this.setTMR(TMR);
+        this.transports = new ArrayList<>();
+    }
+
+//    transports = new ArrayList<>();// create a constructor and create field
     public ArrayList<Transport> getLandTransports() {
         return landTransports;
     }
 
-    public ArrayList<Transport> getRailTransports() {
-        return railTransports;
+    public String getEntryPoint() {
+        return entryPoint;
     }
 
-    public ArrayList<Transport> getAirTransports() {
-        return airTransports;
+    public String getDateOfEntry() {
+        return dateOfEntry;
     }
 
-    public ArrayList<Transport> getSeaTransports() {
-        return seaTransports;
+    public String getExitPoint() {
+        return exitPoint;
     }
 
-    public void addLandTransport(Transport transport){
-        landTransports.add(transport);
+    public String getDateOfExit() {
+        return dateOfExit;
     }
-    public void addRailTransport(Transport transport){
-        railTransports.add(transport);
+
+    public String getCargo() {
+        return cargo;
     }
-    public void addAirTransport(Transport transport){
-        airTransports.add(transport);
+
+    public String getPersonal() {
+        return personal;
     }
-    public void addSeaTransport(Transport transport){
-        seaTransports.add(transport);
+
+    public String getMission() {
+        return mission;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public String getFaxNumber() {
+        return faxNumber;
+    }
+
+    public String getTMR() {
+        return TMR;
+    }
+
+
+
+    public void setEntryPoint(String entryPoint) {
+        this.entryPoint = entryPoint;
+    }
+
+    public void setDateOfEntry(String dateOfEntry) {
+        this.dateOfEntry = dateOfEntry;
+    }
+
+    public void setExitPoint(String exitPoint) {
+        this.exitPoint = exitPoint;
+    }
+
+    public void setDateOfExit(String dateOfExit) {
+        this.dateOfExit = dateOfExit;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public void setPersonal(String personal) {
+        this.personal = personal;
+    }
+
+    public void setMission(String mission) {
+        this.mission = mission;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public void setFaxNumber(String faxNumber) {
+        this.faxNumber = faxNumber;
+    }
+
+    public void setTMR(String TMR) {
+        this.TMR = TMR;
     }
 
 

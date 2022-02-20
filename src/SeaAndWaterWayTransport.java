@@ -1,9 +1,21 @@
+import java.util.ArrayList;
+
 public class SeaAndWaterWayTransport extends Transport{
     String shipType;
     String shipName;
     String hourOfEntry;
     String hourOfExit;
     String weight;
+
+
+    ArrayList<Transport> seaTransports = new ArrayList<>(); // create a constructor and create field
+
+    public ArrayList<Transport> getSeaTransports() {
+        return seaTransports;
+    }
+    public void addSeaTransport(Transport transport){
+        seaTransports.add(transport);
+    }
 
     @Override
     public String toString(){

@@ -1,5 +1,3 @@
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.util.Scanner;
 
 public class Main {
@@ -7,7 +5,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         menu();
 
-        Transports transports = new Transports();
+//        Transports transports = new Transports();
 
         boolean run = true;
         while(run){
@@ -24,21 +22,21 @@ public class Main {
                      String selector = scan.nextLine();
                     switch (selector){
                         case "a":
-                            Transport transport = addLandTransport();
-                            transports.addLandTransport(transport);
+                            LandTransport transport = addLandTransport();
+                            transport.add(transport);
                             break;
-                        case "b":
-                            Transport transportRail = addRailTransport();
-                            transports.addRailTransport(transportRail);
-                            break;
-                        case "c":
-                            Transport transportAir = addAirTransport();
-                            transports.addAirTransport(transportAir);
-                            break;
-                        case "d":
-                            Transport transportSea = addSeaTransport();
-                            transports.addSeaTransport(transportSea);
-                            break;
+//                        case "b":
+//                            Transport transportRail = addRailTransport();
+//                            transports.addRailTransport(transportRail);
+//                            break;
+//                        case "c":
+//                            Transport transportAir = addAirTransport();
+//                            transports.addAirTransport(transportAir);
+//                            break;
+//                        case "d":
+//                            Transport transportSea = addSeaTransport();
+//                            transports.addSeaTransport(transportSea);
+//                            break;
                     }
                     break;
                 case "2": break;
@@ -52,7 +50,8 @@ public class Main {
                 case "8":
                     //read
                     break;
-                case "9": break;
+                case "9":
+                    break;
             }
         }
     }
@@ -75,7 +74,8 @@ public class Main {
 
     }
 
-    public static Transport addLandTransport(){
+    public static LandTransport addLandTransport(){
+
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter starting point: ");
         String startingDestination = scan.nextLine();
@@ -109,163 +109,149 @@ public class Main {
         String faxNumber = scan.nextLine();
         System.out.print("Enter TMR: ");
         String TMR = scan.nextLine();
-        LandTransport transport = new LandTransport();
-        transport.setStartDestination(startingDestination);
-        transport.setFinalDestination(finalDestination);
-        transport.setEntryPoint(entryPoint);
-        transport.setDateOfEntry(dateOfEntry);
-        transport.setExitPoint(exitPoint);
-        transport.setDateOfExit(dateOfExit);
-        transport.setCargo(cargo);
-        transport.setPersonal(personal);
-        transport.setMission(mission);
-        transport.setTypeOfVehicle(typeOfVehicle);
-        transport.setLicensePlateNumber(licensePlateNumber);
-        transport.setLicensePlateNumberTrailer(licensePlateNumberTrailer);
-        transport.setDrivers(drivers);
-        transport.setNote(note);
-        transport.setFaxNumber(faxNumber);
-        transport.setTMR(TMR);
-        return transport;
+
+        return new LandTransport(startingDestination, finalDestination, entryPoint, dateOfEntry,
+                exitPoint, dateOfExit, cargo, personal, mission, typeOfVehicle, licensePlateNumber,
+                licensePlateNumberTrailer, drivers, note, faxNumber, TMR);
     }
-    public static Transport addRailTransport(){
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter starting point: ");
-        String startingDestination = scan.nextLine();
-        System.out.print("Enter final destination: ");
-        String finalDestination = scan.nextLine();
-        System.out.print("Enter entry BXP/home base: ");
-        String entryPoint = scan.nextLine();
-        System.out.print("Enter date of entry in Bulgaria: ");
-        String dateOfEntry = scan.nextLine();
-        System.out.print("Enter BXP/final destination: ");
-        String exitPoint = scan.nextLine();
-        System.out.print("Enter day of border crossing/reaching final destination: ");
-        String dateOfExit = scan.nextLine();
-        System.out.print("Enter cargo: ");
-        String cargo = scan.nextLine();
-        System.out.print("Enter personal: ");
-        String personal = scan.nextLine();
-        System.out.print("Enter name of mission: ");
-        String mission = scan.nextLine();
-        System.out.print("Enter note: ");
-        String note = scan.nextLine();
-        System.out.print("Enter FAX number: ");
-        String faxNumber = scan.nextLine();
-        System.out.print("Enter TMR: ");
-        String TMR = scan.nextLine();
-        RailTransport transport = new RailTransport();
-        transport.setStartDestination(startingDestination);
-        transport.setFinalDestination(finalDestination);
-        transport.setEntryPoint(entryPoint);
-        transport.setDateOfEntry(dateOfEntry);
-        transport.setExitPoint(exitPoint);
-        transport.setDateOfExit(dateOfExit);
-        transport.setCargo(cargo);
-        transport.setPersonal(personal);
-        transport.setMission(mission);
-        transport.setNote(note);
-        transport.setFaxNumber(faxNumber);
-        transport.setTMR(TMR);
-        return transport;
-    }
-    public static Transport addAirTransport(){
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter plain type: ");
-        String planeType = scan.nextLine();
-        System.out.print("Enter flight number: ");
-        String flightNumber = scan.nextLine();
-        System.out.print("Enter entry airfield for landing: ");
-        String entryPoint = scan.nextLine();
-        System.out.print("Enter date of entry in Bulgaria: ");
-        String dateOfEntry = scan.nextLine();
-        System.out.print("Enter hour of landing in Bulgaria: ");
-        String hourOfEntry = scan.nextLine();
-        System.out.print("Enter airfield for takeoff: ");
-        String exitPoint = scan.nextLine();
-        System.out.print("Enter date of takeoff: ");
-        String dateOfExit = scan.nextLine();
-        System.out.print("Enter hour of takeoff: ");
-        String hourOfExit = scan.nextLine();
-        System.out.print("Enter cargo: ");
-        String cargo = scan.nextLine();
-        System.out.print("Enter personal: ");
-        String personal = scan.nextLine();
-        System.out.print("Enter name of mission: ");
-        String mission = scan.nextLine();
-        System.out.print("Enter note: ");
-        String note = scan.nextLine();
-        System.out.print("Enter FAX number: ");
-        String faxNumber = scan.nextLine();
-        System.out.print("Enter TMR: ");
-        String TMR = scan.nextLine();
-        AirTransport transport = new AirTransport();
-        transport.setPlaneType(planeType);
-        transport.setFlightNumber(flightNumber);
-        transport.setEntryPoint(entryPoint);
-        transport.setDateOfEntry(dateOfEntry);
-        transport.setHourOfEntry(hourOfEntry);
-        transport.setExitPoint(exitPoint);
-        transport.setDateOfExit(dateOfExit);
-        transport.setHourOfExit(hourOfExit);
-        transport.setCargo(cargo);
-        transport.setPersonal(personal);
-        transport.setMission(mission);
-        transport.setNote(note);
-        transport.setFaxNumber(faxNumber);
-        transport.setTMR(TMR);
-        return transport;
-    }
-    public static Transport addSeaTransport(){
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter ship type: ");
-        String shipType = scan.nextLine();
-        System.out.print("Enter ship name: ");
-        String shipName = scan.nextLine();
-        System.out.print("Enter port of entry: ");
-        String entryPoint = scan.nextLine();
-        System.out.print("Enter date of entry in Bulgaria: ");
-        String dateOfEntry = scan.nextLine();
-        System.out.print("Enter hour of entering the port in Bulgaria: ");
-        String hourOfEntry = scan.nextLine();
-        System.out.print("Enter port of debarkation: ");
-        String exitPoint = scan.nextLine();
-        System.out.print("Enter date of debarkation: ");
-        String dateOfExit = scan.nextLine();
-        System.out.print("Enter hour of debarkation: ");
-        String hourOfExit = scan.nextLine();
-        System.out.print("Enter cargo: ");
-        String cargo = scan.nextLine();
-        System.out.print("Enter personal: ");
-        String personal = scan.nextLine();
-        System.out.print("Enter weight: ");
-        String weight = scan.nextLine();
-        System.out.print("Enter name of mission: ");
-        String mission = scan.nextLine();
-        System.out.print("Enter note: ");
-        String note = scan.nextLine();
-        System.out.print("Enter FAX number: ");
-        String faxNumber = scan.nextLine();
-        System.out.print("Enter TMR: ");
-        String TMR = scan.nextLine();
-        SeaAndWaterWayTransport transport = new SeaAndWaterWayTransport();
-        transport.setShipType(shipType);
-        transport.setShipName(shipName);
-        transport.setEntryPoint(entryPoint);
-        transport.setDateOfEntry(dateOfEntry);
-        transport.setHourOfEntry(hourOfEntry);
-        transport.setEntryPoint(exitPoint);
-        transport.setDateOfExit(dateOfExit);
-        transport.setHourOfExit(hourOfExit);
-        transport.setCargo(cargo);
-        transport.setPersonal(personal);
-        transport.setWeight(weight);
-        transport.setMission(mission);
-        transport.setNote(note);
-        transport.setFaxNumber(faxNumber);
-        transport.setTMR(TMR);
-        return transport;
-    }
+//    public static Transport addRailTransport(){
+//        Scanner scan = new Scanner(System.in);
+//        System.out.print("Enter starting point: ");
+//        String startingDestination = scan.nextLine();
+//        System.out.print("Enter final destination: ");
+//        String finalDestination = scan.nextLine();
+//        System.out.print("Enter entry BXP/home base: ");
+//        String entryPoint = scan.nextLine();
+//        System.out.print("Enter date of entry in Bulgaria: ");
+//        String dateOfEntry = scan.nextLine();
+//        System.out.print("Enter BXP/final destination: ");
+//        String exitPoint = scan.nextLine();
+//        System.out.print("Enter day of border crossing/reaching final destination: ");
+//        String dateOfExit = scan.nextLine();
+//        System.out.print("Enter cargo: ");
+//        String cargo = scan.nextLine();
+//        System.out.print("Enter personal: ");
+//        String personal = scan.nextLine();
+//        System.out.print("Enter name of mission: ");
+//        String mission = scan.nextLine();
+//        System.out.print("Enter note: ");
+//        String note = scan.nextLine();
+//        System.out.print("Enter FAX number: ");
+//        String faxNumber = scan.nextLine();
+//        System.out.print("Enter TMR: ");
+//        String TMR = scan.nextLine();
+//        RailTransport transport = new RailTransport();
+//        transport.setStartDestination(startingDestination);
+//        transport.setFinalDestination(finalDestination);
+//        transport.setEntryPoint(entryPoint);
+//        transport.setDateOfEntry(dateOfEntry);
+//        transport.setExitPoint(exitPoint);
+//        transport.setDateOfExit(dateOfExit);
+//        transport.setCargo(cargo);
+//        transport.setPersonal(personal);
+//        transport.setMission(mission);
+//        transport.setNote(note);
+//        transport.setFaxNumber(faxNumber);
+//        transport.setTMR(TMR);
+//        return transport;
+//    }
+//    public static Transport addAirTransport(){
+//        Scanner scan = new Scanner(System.in);
+//        System.out.print("Enter plain type: ");
+//        String planeType = scan.nextLine();
+//        System.out.print("Enter flight number: ");
+//        String flightNumber = scan.nextLine();
+//        System.out.print("Enter entry airfield for landing: ");
+//        String entryPoint = scan.nextLine();
+//        System.out.print("Enter date of entry in Bulgaria: ");
+//        String dateOfEntry = scan.nextLine();
+//        System.out.print("Enter hour of landing in Bulgaria: ");
+//        String hourOfEntry = scan.nextLine();
+//        System.out.print("Enter airfield for takeoff: ");
+//        String exitPoint = scan.nextLine();
+//        System.out.print("Enter date of takeoff: ");
+//        String dateOfExit = scan.nextLine();
+//        System.out.print("Enter hour of takeoff: ");
+//        String hourOfExit = scan.nextLine();
+//        System.out.print("Enter cargo: ");
+//        String cargo = scan.nextLine();
+//        System.out.print("Enter personal: ");
+//        String personal = scan.nextLine();
+//        System.out.print("Enter name of mission: ");
+//        String mission = scan.nextLine();
+//        System.out.print("Enter note: ");
+//        String note = scan.nextLine();
+//        System.out.print("Enter FAX number: ");
+//        String faxNumber = scan.nextLine();
+//        System.out.print("Enter TMR: ");
+//        String TMR = scan.nextLine();
+//        AirTransport transport = new AirTransport();
+//        transport.setPlaneType(planeType);
+//        transport.setFlightNumber(flightNumber);
+//        transport.setEntryPoint(entryPoint);
+//        transport.setDateOfEntry(dateOfEntry);
+//        transport.setHourOfEntry(hourOfEntry);
+//        transport.setExitPoint(exitPoint);
+//        transport.setDateOfExit(dateOfExit);
+//        transport.setHourOfExit(hourOfExit);
+//        transport.setCargo(cargo);
+//        transport.setPersonal(personal);
+//        transport.setMission(mission);
+//        transport.setNote(note);
+//        transport.setFaxNumber(faxNumber);
+//        transport.setTMR(TMR);
+//        return transport;
+//    }
+//    public static Transport addSeaTransport(){
+//        Scanner scan = new Scanner(System.in);
+//        System.out.print("Enter ship type: ");
+//        String shipType = scan.nextLine();
+//        System.out.print("Enter ship name: ");
+//        String shipName = scan.nextLine();
+//        System.out.print("Enter port of entry: ");
+//        String entryPoint = scan.nextLine();
+//        System.out.print("Enter date of entry in Bulgaria: ");
+//        String dateOfEntry = scan.nextLine();
+//        System.out.print("Enter hour of entering the port in Bulgaria: ");
+//        String hourOfEntry = scan.nextLine();
+//        System.out.print("Enter port of debarkation: ");
+//        String exitPoint = scan.nextLine();
+//        System.out.print("Enter date of debarkation: ");
+//        String dateOfExit = scan.nextLine();
+//        System.out.print("Enter hour of debarkation: ");
+//        String hourOfExit = scan.nextLine();
+//        System.out.print("Enter cargo: ");
+//        String cargo = scan.nextLine();
+//        System.out.print("Enter personal: ");
+//        String personal = scan.nextLine();
+//        System.out.print("Enter weight: ");
+//        String weight = scan.nextLine();
+//        System.out.print("Enter name of mission: ");
+//        String mission = scan.nextLine();
+//        System.out.print("Enter note: ");
+//        String note = scan.nextLine();
+//        System.out.print("Enter FAX number: ");
+//        String faxNumber = scan.nextLine();
+//        System.out.print("Enter TMR: ");
+//        String TMR = scan.nextLine();
+//        SeaAndWaterWayTransport transport = new SeaAndWaterWayTransport();
+//        transport.setShipType(shipType);
+//        transport.setShipName(shipName);
+//        transport.setEntryPoint(entryPoint);
+//        transport.setDateOfEntry(dateOfEntry);
+//        transport.setHourOfEntry(hourOfEntry);
+//        transport.setEntryPoint(exitPoint);
+//        transport.setDateOfExit(dateOfExit);
+//        transport.setHourOfExit(hourOfExit);
+//        transport.setCargo(cargo);
+//        transport.setPersonal(personal);
+//        transport.setWeight(weight);
+//        transport.setMission(mission);
+//        transport.setNote(note);
+//        transport.setFaxNumber(faxNumber);
+//        transport.setTMR(TMR);
+//        return transport;
+//    }
 
     public static void writeToFile (Transports transports){
         FileUtilities.createFile("Transports.txt");

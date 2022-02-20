@@ -1,8 +1,19 @@
+import java.util.ArrayList;
+
 public class AirTransport extends Transport{
     String planeType;
     String flightNumber;
     String hourOfEntry;
     String hourOfExit;
+
+    ArrayList<Transport> airTransports = new ArrayList<>();// create a constructor and create field
+
+    public ArrayList<Transport> getAirTransports() {
+        return airTransports;
+    }
+    public void addAirTransport(Transport transport){
+        airTransports.add(transport);
+    }
 
     @Override
     public String toString(){

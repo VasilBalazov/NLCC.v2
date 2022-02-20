@@ -1,6 +1,17 @@
+import java.util.ArrayList;
+
 public class RailTransport extends Transport{
     String startDestination;
     String finalDestination;
+
+    ArrayList<Transport> railTransports = new ArrayList<>();// create a constructor and create field
+
+    public ArrayList<Transport> getRailTransports() {
+        return railTransports;
+    }
+    public void addRailTransport(Transport transport){
+        railTransports.add(transport);
+    }
 
     public String getStartDestination() {
         return startDestination;
