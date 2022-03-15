@@ -6,6 +6,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         menu();
 
+
 //        Transports transports = new Transports();
         ArrayList<LandTransport> landTransports = new ArrayList<>();
         ArrayList<RailTransport> railTransports = new ArrayList<>();

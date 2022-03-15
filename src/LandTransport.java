@@ -19,7 +19,6 @@ public class LandTransport extends Transport {
         this.setLicensePlateNumber(licensePlateNumber);
         this.setLicensePlateNumber(licensePlateNumberTrailer);
         this.setDrivers(drivers);
-
     }
 
     public String getStartDestination() {

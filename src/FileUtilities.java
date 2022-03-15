@@ -18,6 +18,7 @@ public class FileUtilities {
             System.out.println(e.getMessage());
         }
     }
+
     //write on file
     public static void writeToFile(Transport transports, String fileName){
         try{
