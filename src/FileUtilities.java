@@ -19,7 +19,7 @@ public class FileUtilities {
         }
     }
     //write on file
-    public static void writeToFile(Transports transports, String fileName){
+    public static void writeToFile(Transport transports, String fileName){
         try{
             FileWriter writer = new FileWriter(fileName);
             for (Transport transport: LandTransport.getLandTransports()) {
@@ -47,8 +47,8 @@ public class FileUtilities {
         }
     }
     //read file
-    public static Transports readFromFile(String fileName){
-        Transports transports = new Transports();
+    public static Transport readFromFile(String fileName){
+        Transport transports = new Transport();
         try{
             FileReader reader = new FileReader(fileName);
             Scanner myTransportReader = new Scanner(reader);

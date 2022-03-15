@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -6,10 +7,13 @@ public class Main {
         menu();
 
 //        Transports transports = new Transports();
-
+        ArrayList<LandTransport> landTransports = new ArrayList<>();
+        ArrayList<RailTransport> railTransports = new ArrayList<>();
+        ArrayList<AirTransport> airTransports = new ArrayList<>();
+        ArrayList<SeaAndWaterWayTransport> seaTransports = new ArrayList<>();
         boolean run = true;
-        while(run){
-            switch (scan.nextLine()){
+        while (run) {
+            switch (scan.nextLine()) {
                 case "0":
                     run = false;
                     break;
@@ -19,11 +23,10 @@ public class Main {
                     System.out.println("b Rail transport");
                     System.out.println("c Air transport");
                     System.out.println("d Sea/waterway transport");
-                     String selector = scan.nextLine();
-                    switch (selector){
+                    String selector = scan.nextLine();
+                    switch (selector) {
                         case "a":
-                            LandTransport transport = addLandTransport();
-                            transport.add(transport);
+                            landTransports.add(addLandTransport());
                             break;
 //                        case "b":
 //                            Transport transportRail = addRailTransport();
@@ -39,13 +42,21 @@ public class Main {
 //                            break;
                     }
                     break;
-                case "2": break;
-                case "3": break;
-                case "4": break;
-                case "5": break;
-                case "6": break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+                case "4":
+                    break;
+                case "5":
+                    break;
+                case "6":
+                    break;
                 case "7":
-                    writeToFile(transports);
+                    writeToFileLand(landTransports);
+                    writeToFileRail(railTransports);
+                    writeToFileAir(airTransports);
+                    writeToFileSea(seaTransports);
                     break;
                 case "8":
                     //read
@@ -55,7 +66,8 @@ public class Main {
             }
         }
     }
-    public static void menu(){
+
+    public static void menu() {
         System.out.println("Welcome to the NLCC Transport Data Base");
         System.out.println("0. Close");
         System.out.println("1. Choose the transport you want to add");
@@ -74,7 +86,7 @@ public class Main {
 
     }
 
-    public static LandTransport addLandTransport(){
+    public static LandTransport addLandTransport() {
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter starting point: ");
@@ -253,14 +265,45 @@ public class Main {
 //        return transport;
 //    }
 
-    public static void writeToFile (Transports transports){
-        FileUtilities.createFile("Transports.txt");
-        FileUtilities.writeToFile(transports, "Transports.txt");
+
+
+    // have to create an operator witch can get an object and then iterate itself
+    public static void writeToFileLand(ArrayList<LandTransport> transports) {
+        FileUtilities.createFile("Land Transports.txt");
+        for (Transport transport : transports) {
+            FileUtilities.writeToFile(transport, "Land Transports.txt");
+        }
     }
 
-    public static Transports readFile (){
-        Transports transports = FileUtilities.readFromFile("Transports.txt");
-        return transports;
+    public static void writeToFileRail(ArrayList<RailTransport> transports) {
+        FileUtilities.createFile("Railway Transports.txt");
+        for (Transport transport : transports) {
+            FileUtilities.writeToFile(transport, "Railway Transports.txt");
+        }
     }
 
+    public static void writeToFileAir(ArrayList<AirTransport> transports) {
+        FileUtilities.createFile("Air Transports.txt");
+        for (Transport transport : transports) {
+            FileUtilities.writeToFile(transport, "Air Transports.txt");
+        }
+    }
+
+    public static void writeToFileSea(ArrayList<SeaAndWaterWayTransport> transports) {
+        for (Transport transport : transports) {
+            FileUtilities.createFile("Sea Transports.txt");
+            FileUtilities.writeToFile(transport, "Sea Transports.txt");
+        }
+    }
+//    --------------------------------------------------------------------------
+
+    //create a method that can read from every .txt file or a recursive method that calls other reading files
+    public static Transport readFile() {
+        Transport transportsLand = FileUtilities.readFromFile("Land Transports.txt");
+        Transport transportsAir = FileUtilities.readFromFile("Air Transports.txt");
+        Transport transportsRail = FileUtilities.readFromFile("Railway Transports.txt");
+        Transport transportsSea = FileUtilities.readFromFile("Sea Transports.txt");
+        return transportsLand;
+    }
+    // ??????????????????????????????????????????????????????????????????????????????????????????????????????
 }
