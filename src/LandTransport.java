@@ -1,40 +1,20 @@
 public class LandTransport extends Transport {
-    String startDestination;
-    String finalDestination;
+
     String typeOfVehicle;
     String licensePlateNumber;
     String licensePlateNumberTrailer;
     String drivers;
 
-    public LandTransport(String entryPoint, String dateOfEntry, String exitPoint, String dateOfExit ,
-                         String cargo, String personal, String mission, String note, String faxNumber, String TMR,
-                          String startDestination, String finalDestination,
-                         String typeOfVehicle, String licensePlateNumber, String licensePlateNumberTrailer,
-                         String drivers) {
-        super(entryPoint, dateOfEntry, exitPoint, dateOfExit, cargo, personal, mission,
-                note, faxNumber, TMR);
-        this.setStartDestination(startDestination);
-        this.setFinalDestination(finalDestination);
-        this.setTypeOfVehicle(typeOfVehicle);
-        this.setLicensePlateNumber(licensePlateNumber);
-        this.setLicensePlateNumber(licensePlateNumberTrailer);
-        this.setDrivers(drivers);
-    }
-
-    public String getStartDestination() {
-        return startDestination;
-    }
-
-    public void setStartDestination(String startDestination) {
-        this.startDestination = startDestination;
-    }
-
-    public String getFinalDestination() {
-        return finalDestination;
-    }
-
-    public void setFinalDestination(String finalDestination) {
-        this.finalDestination = finalDestination;
+    public LandTransport(String startPoint, String finalDestination, String entryPoint, String dateOfEntry,
+                         String exitPoint, String dateOfExit, String cargo, String personal, String mission,
+                         String note, String faxNumber, String TMR, String typeOfVehicle, String licensePlateNumber,
+                         String licensePlateNumberTrailer, String drivers) {
+        super(startPoint, finalDestination, entryPoint, dateOfEntry, exitPoint, dateOfExit,
+                cargo, personal, mission, note, faxNumber, TMR);
+        this.typeOfVehicle = typeOfVehicle;
+        this.licensePlateNumber = licensePlateNumber;
+        this.licensePlateNumberTrailer = licensePlateNumberTrailer;
+        this.drivers = drivers;
     }
 
     public String getTypeOfVehicle() {

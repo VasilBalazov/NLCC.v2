@@ -7,19 +7,22 @@ public class SeaAndWaterWayTransport extends Transport{
     String hourOfExit;
     String weight;
 
-
-    ArrayList<Transport> seaTransports = new ArrayList<>(); // create a constructor and create field
-
-    public ArrayList<Transport> getSeaTransports() {
-        return seaTransports;
-    }
-    public void addSeaTransport(Transport transport){
-        seaTransports.add(transport);
+    public SeaAndWaterWayTransport(String startPoint, String finalDestination, String entryPoint, String dateOfEntry,
+                                   String exitPoint, String dateOfExit, String cargo, String personal, String mission,
+                                   String note, String faxNumber, String TMR, String shipType, String shipName,
+                                   String hourOfEntry, String hourOfExit, String weight) {
+        super(startPoint, finalDestination, entryPoint, dateOfEntry, exitPoint, dateOfExit,
+                cargo, personal, mission, note, faxNumber, TMR);
+        this.shipType = shipType;
+        this.shipName = shipName;
+        this.hourOfEntry = hourOfEntry;
+        this.hourOfExit = hourOfExit;
+        this.weight = weight;
     }
 
     @Override
     public String toString(){
-        return (this.shipType + ", " + this.shipName + ", "+ this.entryPoint+ ", " + this.dateOfEntry + ", "+ this.hourOfEntry
+        return (this.startPoint + ", " + this.finalDestination + ", " + this.shipType + ", " + this.shipName + ", "+ this.entryPoint+ ", " + this.dateOfEntry + ", "+ this.hourOfEntry
                 + ", " + this.exitPoint + ", " + this.dateOfExit + ", "+ this.hourOfExit + ", " + this.cargo
                 + ", " + this.personal + ", " + this.weight + ", " + this.mission
                  + ", " + this.note + ", " + this.faxNumber + ", " + this.TMR );

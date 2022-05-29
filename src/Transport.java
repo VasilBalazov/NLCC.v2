@@ -1,4 +1,6 @@
 public abstract class Transport {
+    String startPoint;
+    String finalDestination;
     String entryPoint;
     String dateOfEntry;
     String exitPoint;
@@ -10,10 +12,11 @@ public abstract class Transport {
     String faxNumber;
     String TMR;
 
-
-    public Transport(String entryPoint, String dateOfEntry, String exitPoint,
+    public Transport(String startPoint, String finalDestination, String entryPoint, String dateOfEntry, String exitPoint,
                      String dateOfExit, String cargo, String personal, String mission,
                      String note, String faxNumber, String TMR) {
+        this.setStartPoint(startPoint);
+        this.setFinalDestination(finalDestination);
         this.setEntryPoint(entryPoint);
         this.setDateOfEntry(dateOfEntry);
         this.setExitPoint(exitPoint);
@@ -26,7 +29,16 @@ public abstract class Transport {
         this.setTMR(TMR);
     }
 
+
 //    transports = new ArrayList<>();// create a constructor and create field
+
+    public String getStartPoint() {
+        return startPoint;
+    }
+
+    public String getFinalDestination() {
+        return finalDestination;
+    }
 
     public String getEntryPoint() {
         return entryPoint;
@@ -69,6 +81,14 @@ public abstract class Transport {
     }
 
 
+
+    public void setStartPoint(String startPoint) {
+        this.startPoint = startPoint;
+    }
+
+    public void setFinalDestination(String finalDestination) {
+        this.finalDestination = finalDestination;
+    }
 
     public void setEntryPoint(String entryPoint) {
         this.entryPoint = entryPoint;
