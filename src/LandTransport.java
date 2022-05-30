@@ -52,13 +52,14 @@ public class LandTransport extends Transport {
 
 
 
-//
-//    @Override
-//    public String toString(){
-//       return (this.startDestination + ", " + this.finalDestination + ", "+ this.entryPoint+ ", " + this.dateOfEntry
-//               + ", " + this.exitPoint + ", " + this.dateOfExit + ", " + this.cargo + ", " + this.personal
-//               + ", " + this.mission + ", " + this.typeOfVehicle
-//               + ", " + this.licensePlateNumber + ", " + this.licensePlateNumberTrailer + ", " +
-//               this.drivers + ", " + this.note + ", " + this.faxNumber + ", " + this.TMR );
+
+    @Override
+    public String toString(){
+       return (this.startPoint + ", " + this.finalDestination + ", "+ this.entryPoint+ ", " + this.dateOfEntry
+               + ", " + this.exitPoint + ", " + this.dateOfExit + ", " + this.cargo + ", " + this.personal
+               + ", " + this.mission + ", " + this.typeOfVehicle
+               + ", " + this.licensePlateNumber + ", " + this.licensePlateNumberTrailer + ", " +
+               this.drivers + ", " + this.note + ", " + this.faxNumber + ", " + this.TMR );
     }
+}
 
