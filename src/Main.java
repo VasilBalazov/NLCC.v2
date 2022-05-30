@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        menu();
 
 
 
@@ -14,6 +13,7 @@ public class Main {
 //        ArrayList<SeaAndWaterWayTransport> seaTransports = new ArrayList<>();
         boolean run = true;
         while (run) {
+            menu();
             switch (scan.nextLine()) {
                 case "0":
                     run = false;

@@ -24,7 +24,7 @@ public class FileUtilities {
         try{
             FileWriter writer = new FileWriter(fileName);
             for (LandTransport landTransport: TransportRepo.landTransports) {
-                writer.write(landTransport.toString());//wrong toString method TO BE CHECKED
+                writer.write(landTransport.toString());
                 writer.write("\n");
             }
             // See if it works then change all the other inputs
