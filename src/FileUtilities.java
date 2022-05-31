@@ -52,8 +52,8 @@ public class FileUtilities {
         }
     }
     //read file    double comment to be cleared and reviewed!!!
-    public static LandTransport readFromFile(String fileName){
-        Transport transports = new LandTransport();
+    public static Transport readFromFile(String fileName){
+//        Transport transports = new Transport();
         try{
             FileReader reader = new FileReader(fileName);
             Scanner myTransportReader = new Scanner(reader);
@@ -63,10 +63,12 @@ public class FileUtilities {
                 switch (result.length){
                     case 16:
                         // road
+
                         LandTransport transportL = new LandTransport(result[0], result[1],result[2],result[3],result[4],
                         result[5],result[6],result[7],result[8],result[9],result[10],result[11],result[12],result[13],result[14],
                         result[15]);
                         TransportRepo.increaseLT(transportL);
+
                         break;
 //                    case 12:
                     //rail
