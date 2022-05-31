@@ -10,6 +10,11 @@ public class TransportRepo {
     public static void increaseLT(){
         landTransports.add(addLandTransport());
     }
+
+    public static void increaseLT(LandTransport TransportL){
+        landTransports.add(TransportL);
+    }
+
     public static void increaseRT (){
         railTransports.add(addRailTransport());
     }
