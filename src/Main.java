@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-
+        TransportRepo repo = new TransportRepo();
 
 //        ArrayList<LandTransport> landTransports = new ArrayList<>();
 //        ArrayList<RailTransport> railTransports = new ArrayList<>();
@@ -26,16 +26,16 @@ public class Main {
                     String selector = scan.nextLine();
                     switch (selector) {
                         case "a":
-                            TransportRepo.increaseLT();
+                            repo.increaseLT();
                             break;
                         case "b":
-                            TransportRepo.increaseRT();
+                            repo.increaseRT();
                             break;
                         case "c":
-                            TransportRepo.increaseAT();
+                            repo.increaseAT();
                             break;
                         case "d":
-                            TransportRepo.increaseST();
+                            repo.increaseST();
                             break;
                     }
                     break;
@@ -50,15 +50,16 @@ public class Main {
                 case "6":
                     break;
                 case "7":
-                    writeToFileLand(TransportRepo.landTransports);
-                    writeToFileRail(TransportRepo.railTransports);
-                    writeToFileAir(TransportRepo.airTransports);
-                    writeToFileSea(TransportRepo.seaTransports);
+                    writeToFileLand(repo.landTransports);
+                    writeToFileRail(repo.railTransports);
+                    writeToFileAir(repo.airTransports);
+                    writeToFileSea(repo.seaTransports);
                     break;
                 case "8":
-                    readFile();
+                    readFile(repo);
                     break;
                 case "9":
+                    repo.landTransports.toString();
                     break;
             }
         }
@@ -115,12 +116,12 @@ public class Main {
 //    --------------------------------------------------------------------------
 
     //create a method that can read from every .txt file or a recursive method that calls other reading files
-    public static Transport readFile() {
-        Transport transportsLand = FileUtilities.readFromFile("Land Transports.txt");
-        Transport transportsAir = FileUtilities.readFromFile("Air Transports.txt");
-        Transport transportsRail = FileUtilities.readFromFile("Railway Transports.txt");
-        Transport transportsSea = FileUtilities.readFromFile("Sea Transports.txt");
-        return transportsLand;
+    public static void readFile(TransportRepo repo) {
+        repo.landTransports = FileUtilities.readFromFile("Land Transports.txt");
+
+//        Transport transportsAir = FileUtilities.readFromFile("Air Transports.txt");
+//        Transport transportsRail = FileUtilities.readFromFile("Railway Transports.txt");
+//        Transport transportsSea = FileUtilities.readFromFile("Sea Transports.txt");
     }
     // ??????????????????????????????????????????????????????????????????????????????????????????????????????
 }
