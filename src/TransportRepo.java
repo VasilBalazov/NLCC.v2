@@ -2,26 +2,28 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TransportRepo {
-    static ArrayList<LandTransport> landTransports = new ArrayList<>();
-    static ArrayList<RailTransport> railTransports = new ArrayList<>();
-    static ArrayList<AirTransport> airTransports = new ArrayList<>();
-    static ArrayList<SeaAndWaterWayTransport> seaTransports = new ArrayList<>();
+    ArrayList<LandTransport> landTransports = new ArrayList<>();
+    ArrayList<RailTransport> railTransports = new ArrayList<>();
+    ArrayList<AirTransport> airTransports = new ArrayList<>();
+    ArrayList<SeaAndWaterWayTransport> seaTransports = new ArrayList<>();
 
-    public static void increaseLT(){
+    public void increaseLT() {
         landTransports.add(addLandTransport());
     }
 
-    public static void increaseLT(LandTransport TransportL){
+    public void increaseLT(LandTransport TransportL) {
         landTransports.add(TransportL);
     }
 
-    public static void increaseRT (){
+    public void increaseRT() {
         railTransports.add(addRailTransport());
     }
-    public static void increaseAT (){
+
+    public void increaseAT() {
         airTransports.add(addAirTransport());
     }
-    public static void increaseST (){
+
+    public void increaseST() {
         seaTransports.add(addSeaTransport());
     }
 
@@ -65,7 +67,7 @@ public class TransportRepo {
                 licensePlateNumberTrailer, drivers, note, faxNumber, TMR);
     }
 
-    public static RailTransport addRailTransport(){
+    public static RailTransport addRailTransport() {
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter starting point: ");
         String startingDestination = scan.nextLine();
@@ -95,7 +97,7 @@ public class TransportRepo {
                 exitPoint, dateOfExit, cargo, personal, mission, note, faxNumber, TMR);
     }
 
-    public static AirTransport addAirTransport(){
+    public static AirTransport addAirTransport() {
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter starting point: ");
         String startingDestination = scan.nextLine();
@@ -133,7 +135,7 @@ public class TransportRepo {
                 dateOfExit, cargo, personal, mission, note, faxNumber, TMR, planeType, flightNumber, hourOfEntry, hourOfExit);
     }
 
-    public static SeaAndWaterWayTransport addSeaTransport(){
+    public static SeaAndWaterWayTransport addSeaTransport() {
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter starting point: ");
         String startingDestination = scan.nextLine();

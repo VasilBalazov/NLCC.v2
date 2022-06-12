@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileUtilities {
@@ -20,13 +21,14 @@ public class FileUtilities {
     }
 
     //write on file
-    public static void writeToFile(Transport transports, String fileName){
+    public static void writeToFile(Transport transport, String fileName){
         try{
             FileWriter writer = new FileWriter(fileName);
-            for (LandTransport landTransport: TransportRepo.landTransports) {
-                writer.write(landTransport.toString());
-                writer.write("\n");
-            }
+//            for (Transport transport: transports) {
+//            }
+
+            writer.write(transport.toString());
+            writer.write("\n");
             // See if it works then change all the other inputs
             /*
             for (Transport transport: LandTransport.getLandTransports()) {
@@ -52,22 +54,24 @@ public class FileUtilities {
         }
     }
     //read file    double comment to be cleared and reviewed!!!
-    public static LandTransport readFromFile(String fileName){
-        Transport transports = new LandTransport();
+    public static ArrayList<LandTransport> readFromFile(String fileName){
+        ArrayList<LandTransport> landTransports = new ArrayList<>();
         try{
             FileReader reader = new FileReader(fileName);
             Scanner myTransportReader = new Scanner(reader);
             while (myTransportReader.hasNextLine()){
                 String data = myTransportReader.nextLine();
                 String[] result = data.split(", ");
-                switch (result.length){
-                    case 16:
+//                switch (result.length){
+//                    case 16:
                         // road
+
                         LandTransport transportL = new LandTransport(result[0], result[1],result[2],result[3],result[4],
                         result[5],result[6],result[7],result[8],result[9],result[10],result[11],result[12],result[13],result[14],
                         result[15]);
-                        TransportRepo.increaseLT(transportL);
-                        break;
+                        landTransports.add(transportL);
+
+//                        break;
 //                    case 12:
                     //rail
 //                        RailTransport railTransport = new RailTransport();
@@ -123,13 +127,13 @@ public class FileUtilities {
 //                        seaTransport.setFaxNumber(result[13]);
 //                        seaTransport.setTMR(result[14]);
 //                        break;
-                }
+//                }
             }
 
         }catch (IOException e){
             System.out.println(e.getMessage());
         }
-        return transports;
+        return landTransports;
 
     }
 }
