@@ -51,9 +51,9 @@ public class Main {
                     break;
                 case "7":
                     writeToFileLand(repo.landTransports);
-                    writeToFileRail(repo.railTransports);
-                    writeToFileAir(repo.airTransports);
-                    writeToFileSea(repo.seaTransports);
+//                    writeToFileRail(repo.railTransports);
+//                    writeToFileAir(repo.airTransports);
+//                    writeToFileSea(repo.seaTransports);
                     break;
                 case "8":
                     readFile(repo);
@@ -88,31 +88,31 @@ public class Main {
     // have to create an operator witch can get an object and then iterate itself
     public static void writeToFileLand(ArrayList<LandTransport> transports) {
         FileUtilities.createFile("Land Transports.txt");
-        for (Transport transport : transports) {
-            FileUtilities.writeToFile(transport, "Land Transports.txt");
-        }
+//        for (LandTransport transport : transports) {
+//        }
+        FileUtilities.writeToFile(transports, "Land Transports.txt");
     }
 
-    public static void writeToFileRail(ArrayList<RailTransport> transports) {
-        FileUtilities.createFile("Railway Transports.txt");
-        for (Transport transport : transports) {
-            FileUtilities.writeToFile(transport, "Railway Transports.txt");
-        }
-    }
-
-    public static void writeToFileAir(ArrayList<AirTransport> transports) {
-        FileUtilities.createFile("Air Transports.txt");
-        for (Transport transport : transports) {
-            FileUtilities.writeToFile(transport, "Air Transports.txt");
-        }
-    }
-
-    public static void writeToFileSea(ArrayList<SeaAndWaterWayTransport> transports) {
-        for (Transport transport : transports) {
-            FileUtilities.createFile("Sea Transports.txt");
-            FileUtilities.writeToFile(transport, "Sea Transports.txt");
-        }
-    }
+//    public static void writeToFileRail(ArrayList<RailTransport> transports) {
+//        FileUtilities.createFile("Railway Transports.txt");
+//        for (Transport transport : transports) {
+//            FileUtilities.writeToFile(transport, "Railway Transports.txt");
+//        }
+//    }
+//
+//    public static void writeToFileAir(ArrayList<AirTransport> transports) {
+//        FileUtilities.createFile("Air Transports.txt");
+//        for (Transport transport : transports) {
+//            FileUtilities.writeToFile(transport, "Air Transports.txt");
+//        }
+//    }
+//
+//    public static void writeToFileSea(ArrayList<SeaAndWaterWayTransport> transports) {
+//        for (SeaAndWaterWayTransport transport : transports) {
+//            FileUtilities.createFile("Sea Transports.txt");
+//            FileUtilities.writeToFile(transport, "Sea Transports.txt");
+//        }
+//    }
 //    --------------------------------------------------------------------------
 
     //create a method that can read from every .txt file or a recursive method that calls other reading files

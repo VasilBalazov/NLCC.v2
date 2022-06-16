@@ -21,12 +21,10 @@ public class FileUtilities {
     }
 
     //write on file
-    public static void writeToFile(Transport transport, String fileName){
+    public static void writeToFile(ArrayList<LandTransport> transports, String fileName){
         try{
             FileWriter writer = new FileWriter(fileName);
-//            for (Transport transport: transports) {
-//            }
-
+        for (LandTransport transport : transports) {
             writer.write(transport.toString());
             writer.write("\n");
             // See if it works then change all the other inputs
@@ -49,6 +47,8 @@ public class FileUtilities {
             }
             */
             writer.close();
+        }
+
         }catch (IOException e){
             System.out.println(e.getMessage());
         }
