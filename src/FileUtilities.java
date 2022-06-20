@@ -46,8 +46,8 @@ public class FileUtilities {
                 writer.write("\n");
             }
             */
-            writer.close();
         }
+            writer.close();
 
         }catch (IOException e){
             System.out.println(e.getMessage());
