@@ -11,8 +11,8 @@ public class Main {
 //        ArrayList<AirTransport> airTransports = new ArrayList<>();
 //        ArrayList<SeaAndWaterWayTransport> seaTransports = new ArrayList<>();
         boolean run = true;
+        menu();
         while (run) {
-            menu();
             switch (scan.nextLine()) {
                 case "0":
                     run = false;
@@ -44,6 +44,9 @@ public class Main {
                 case "3":
                     break;
                 case "4":
+                    System.out.println("Please, enter the TMR Number:");
+                    String number = scan.nextLine();
+                    repo.searchByTMR(repo.landTransports, number);
                     break;
                 case "5":
                     break;
@@ -64,6 +67,7 @@ public class Main {
             }
         }
     }
+
 
     public static void menu() {
         System.out.println("Welcome to the NLCC Transport Data Base");

@@ -60,7 +60,7 @@ public class TransportRepo {
         System.out.print("Enter FAX number: ");
         String faxNumber = scan.nextLine();
         System.out.print("Enter TMR: ");
-        String TMR = scan.nextLine();
+        String TMR =scan.nextLine();
 
         return new LandTransport(startingDestination, finalDestination, entryPoint, dateOfEntry,
                 exitPoint, dateOfExit, cargo, personal, mission, typeOfVehicle, licensePlateNumber,
@@ -175,4 +175,12 @@ public class TransportRepo {
                 dateOfExit, cargo, personal, mission, note, faxNumber, TMR, shipType, shipName, hourOfEntry, hourOfExit, weight);
     }
 
+    public void searchByTMR(ArrayList<LandTransport> landTransports, String number) {
+
+        for (LandTransport landTransport : landTransports) {
+            if (number.equals(landTransport.getTMR())){
+                System.out.println(landTransport);
+            }
+        }
+     }
 }
