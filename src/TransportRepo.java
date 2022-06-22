@@ -176,11 +176,27 @@ public class TransportRepo {
     }
 
     public void searchByTMR(ArrayList<LandTransport> landTransports, String number) {
-
+//        landTransports.forEach(landTransport -> landTransport.getTMR().equals(number));
         for (LandTransport landTransport : landTransports) {
             if (number.equals(landTransport.getTMR())){
                 System.out.println(landTransport);
             }
         }
      }
+
+    public void removeByTMR(ArrayList<LandTransport> landTransports, String TMR) {
+        int index = 0;
+        boolean isTrue = false;
+        for (LandTransport landTransport : landTransports) {
+            if (landTransport.getTMR().equals(TMR)){
+                landTransports.remove(index);
+                isTrue = true;
+
+            }
+            if (isTrue){
+                break;
+            }
+            index++;
+        }
+    }
 }

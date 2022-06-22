@@ -6,10 +6,6 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         TransportRepo repo = new TransportRepo();
 
-//        ArrayList<LandTransport> landTransports = new ArrayList<>();
-//        ArrayList<RailTransport> railTransports = new ArrayList<>();
-//        ArrayList<AirTransport> airTransports = new ArrayList<>();
-//        ArrayList<SeaAndWaterWayTransport> seaTransports = new ArrayList<>();
         boolean run = true;
         menu();
         while (run) {
@@ -40,6 +36,9 @@ public class Main {
                     }
                     break;
                 case "2":
+                    System.out.println("Please, enter the TMR Number:");
+                    String TMRToRemove = scan.nextLine();
+                    repo.removeByTMR(repo.landTransports, TMRToRemove);
                     break;
                 case "3":
                     break;
