@@ -185,18 +185,27 @@ public class TransportRepo {
      }
 
     public void removeByTMR(ArrayList<LandTransport> landTransports, String TMR) {
-        int index = 0;
         boolean isTrue = false;
         for (LandTransport landTransport : landTransports) {
             if (landTransport.getTMR().equals(TMR)){
-                landTransports.remove(index);
+                int indexX = landTransports.indexOf(landTransport);
+                landTransports.remove(indexX);
                 isTrue = true;
-
             }
             if (isTrue){
                 break;
             }
-            index++;
+        }
+        if (!isTrue){
+            System.out.println("There is no such TMR");
+        }
+    }
+
+    public void searchByFaxNumber(ArrayList<LandTransport> landTransports, String faxNumber) {
+        for (LandTransport landTransport : landTransports) {
+            if (faxNumber.equals(landTransport.getTMR())){
+                System.out.println(landTransport);
+            }
         }
     }
 }

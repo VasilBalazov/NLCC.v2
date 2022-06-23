@@ -48,6 +48,9 @@ public class Main {
                     repo.searchByTMR(repo.landTransports, number);
                     break;
                 case "5":
+                    System.out.println("Please, enter the Fax Number:");
+                    String faxNumber = scan.nextLine();
+                    repo.searchByFaxNumber(repo.landTransports, faxNumber);
                     break;
                 case "6":
                     break;
@@ -70,20 +73,20 @@ public class Main {
 
     public static void menu() {
         System.out.println("Welcome to the NLCC Transport Data Base");
-        System.out.println("0. Close");
-        System.out.println("1. Choose the transport you want to add");
-        System.out.println("a Land transport");
-        System.out.println("b Rail transport");
-        System.out.println("c Air transport");
-        System.out.println("d Sea/waterway transport");
-        System.out.println("2. Remove transport from data");
+        System.out.println("0. Close"); //done
+        System.out.println("1. Choose the transport you want to add"); //done for land
+        System.out.println("a Land transport");  //done
+        System.out.println("b Rail transport"); //TODO
+        System.out.println("c Air transport"); //TODO
+        System.out.println("d Sea/waterway transport"); //TODO
+        System.out.println("2. Remove transport from data"); //Done for TMR
         System.out.println("3. Change existing transport");
-        System.out.println("4. Search by TMR");
-        System.out.println("5. Search by FAX number");
-        System.out.println("6. Search in a time period for transports");
-        System.out.println("7. Save changes");
-        System.out.println("8. Read from files");
-        System.out.println("9. Print all transports");
+        System.out.println("4. Search by TMR"); //Done
+        System.out.println("5. Search by FAX number"); //TODO
+        System.out.println("6. Search in a time period for transports"); //TODO
+        System.out.println("7. Save changes"); //Done for land
+        System.out.println("8. Read from files"); //Done for land
+        System.out.println("9. Print all transports"); //Done for land
 
     }
 
