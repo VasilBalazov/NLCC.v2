@@ -201,11 +201,46 @@ public class TransportRepo {
         }
     }
 
+    public void removeByFaxNumber(ArrayList<LandTransport> landTransports, String fn) {
+        boolean isTrue = false;
+        for (LandTransport landTransport : landTransports) {
+            if (landTransport.getFaxNumber().equals(fn)){
+                int indexX = landTransports.indexOf(landTransport);
+                landTransports.remove(indexX);
+                isTrue = true;
+            }
+            if (isTrue){
+                break;
+            }
+        }
+        if (!isTrue){
+            System.out.println("There is no such TMR");
+        }
+    }
+
     public void searchByFaxNumber(ArrayList<LandTransport> landTransports, String faxNumber) {
         for (LandTransport landTransport : landTransports) {
             if (faxNumber.equals(landTransport.getTMR())){
                 System.out.println(landTransport);
             }
+        }
+    }
+
+    public void changeFax(ArrayList<LandTransport> landTransports, String number) {
+      boolean isTrue = true;
+        for (LandTransport landTransport : landTransports) {
+            if (number.equals(landTransport.getFaxNumber())){
+//                int index = landTransports.indexOf(landTransport);
+                landTransports.remove(landTransport);
+                isTrue = false;
+                break;
+            }
+        }
+
+        if (!isTrue){
+            increaseLT();
+        }else {
+            System.out.println("There is no such fax number in land transports!!!");
         }
     }
 }
