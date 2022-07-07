@@ -30,7 +30,6 @@ public abstract class Transport {
     }
 
 
-//    transports = new ArrayList<>();// create a constructor and create field
 
     public String getStartPoint() {
         return startPoint;

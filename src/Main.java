@@ -38,14 +38,14 @@ public class Main {
                 case "2":
                     System.out.println("Please, enter the TMR Number:");
                     String TMRToRemove = scan.nextLine();
-                    repo.removeByTMR(repo.landTransports, TMRToRemove);
+                    repo.removeByTMR(TMRToRemove);
                     break;
                 case "3":
                     break;
                 case "4":
                     System.out.println("Please, enter the TMR Number:");
                     String number = scan.nextLine();
-                    repo.searchByTMR(repo.landTransports, number);
+                    repo.searchByTMR(number);
                     break;
                 case "5":
                     System.out.println("Please, enter the Fax Number:");
@@ -64,7 +64,7 @@ public class Main {
                     readFile(repo);
                     break;
                 case "9":
-                    repo.landTransports.toString();
+                    System.out.println(repo.landTransports);
                     break;
             }
         }
@@ -82,7 +82,7 @@ public class Main {
         System.out.println("2. Remove transport from data"); //Done for TMR
         System.out.println("3. Change existing transport");
         System.out.println("4. Search by TMR"); //Done
-        System.out.println("5. Search by FAX number"); //TODO
+        System.out.println("5. Search by FAX number"); //Done
         System.out.println("6. Search in a time period for transports"); //TODO
         System.out.println("7. Save changes"); //Done for land
         System.out.println("8. Read from files"); //Done for land
@@ -94,8 +94,6 @@ public class Main {
     // have to create an operator witch can get an object and then iterate itself
     public static void writeToFileLand(ArrayList<LandTransport> transports) {
         FileUtilities.createFile("Land Transports.txt");
-//        for (LandTransport transport : transports) {
-//        }
         FileUtilities.writeToFile(transports, "Land Transports.txt");
     }
 
@@ -129,5 +127,4 @@ public class Main {
 //        Transport transportsRail = FileUtilities.readFromFile("Railway Transports.txt");
 //        Transport transportsSea = FileUtilities.readFromFile("Sea Transports.txt");
     }
-    // ??????????????????????????????????????????????????????????????????????????????????????????????????????
 }

@@ -61,7 +61,7 @@ public class LandTransport extends Transport {
                 + ", " + this.mission + ", " + this.typeOfVehicle
                 + ", " + this.licensePlateNumber + ", " + this.licensePlateNumberTrailer + ", " +
                 this.drivers + ", " + this.note + ", " + this.faxNumber + ", " + this.TMR;
-        System.out.println(lt);
+//        System.out.println(lt);
         return lt;
 //       return  (this.startPoint + ", " + this.finalDestination + ", "+ this.entryPoint+ ", " + this.dateOfEntry
 //               + ", " + this.exitPoint + ", " + this.dateOfExit + ", " + this.cargo + ", " + this.personal
