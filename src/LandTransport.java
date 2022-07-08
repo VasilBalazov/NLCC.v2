@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 public class LandTransport extends Transport {
 
     String typeOfVehicle;
@@ -55,17 +57,14 @@ public class LandTransport extends Transport {
 
     @Override
     public String toString(){
-
-        String lt = this.startPoint + ", " + this.finalDestination + ", " + this.entryPoint + ", " + this.dateOfEntry
-                + ", " + this.exitPoint + ", " + this.dateOfExit + ", " + this.cargo + ", " + this.personal
-                + ", " + this.mission + ", " + this.typeOfVehicle
-                + ", " + this.licensePlateNumber + ", " + this.licensePlateNumberTrailer + ", " +
-                this.drivers + ", " + this.note + ", " + this.faxNumber + ", " + this.TMR;
-        return lt;
-//       return  (this.startPoint + ", " + this.finalDestination + ", "+ this.entryPoint+ ", " + this.dateOfEntry
-//               + ", " + this.exitPoint + ", " + this.dateOfExit + ", " + this.cargo + ", " + this.personal
-//               + ", " + this.mission + ", " + this.typeOfVehicle
-//               + ", " + this.licensePlateNumber + ", " + this.licensePlateNumberTrailer + ", " +
-//               this.drivers + ", " + this.note + ", " + this.faxNumber + ", " + this.TMR );
+        String transportInfo = String.format("%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s%n", startPoint, finalDestination, entryPoint, dateOfEntry,
+                exitPoint, dateOfExit, cargo, personal, mission, typeOfVehicle, licensePlateNumber, licensePlateNumberTrailer, drivers, note, faxNumber, TMR);
+        transportInfo = transportInfo.replaceAll("\\[", "").replaceAll("\\]","");
+        return transportInfo;
+//        return this.startPoint + ", " + this.finalDestination + ", " + this.entryPoint + ", " + this.dateOfEntry
+//                + ", " + this.exitPoint + ", " + this.dateOfExit + ", " + this.cargo + ", " + this.personal
+//                + ", " + this.mission + ", " + this.typeOfVehicle
+//                + ", " + this.licensePlateNumber + ", " + this.licensePlateNumberTrailer + ", " +
+//                this.drivers + ", " + this.note + ", " + this.faxNumber + ", " + this.TMR;
     }
 }

@@ -173,46 +173,43 @@ public class TransportRepo {
     }
 
     public void searchByTMR(String number) {
-        for (LandTransport landTransport : landTransports) {
-            if (number.equals(landTransport.getTMR())){
-                System.out.println(landTransport);
-                return;
-            }
-        }
-        for (AirTransport airTransport : airTransports) {
-            if (number.equals(airTransport.getTMR())){
-                System.out.println(airTransport);
-                return;
-            }
-        }
-        for (RailTransport railTransport : railTransports) {
-            if (number.equals(railTransport.getTMR())){
-                System.out.println(railTransport);
-                return;
-            }
-        }
-        for (SeaAndWaterWayTransport seaAndWaterWayTransport : seaTransports) {
-            if (number.equals(seaAndWaterWayTransport.getTMR())){
-                System.out.println(seaAndWaterWayTransport);
-                return;
-            }
-        }
-    }
-
-    public void removeByTMR(String TMR) {
-        removeByTMR(landTransports, TMR);
-        removeByTMR(airTransports, TMR);
-        removeByTMR(railTransports, TMR);
-        removeByTMR(seaTransports, TMR);
-        System.out.println("There is no such TMR");
+        searchByTMR(landTransports, number);
+        searchByTMR(airTransports, number);
+        searchByTMR(railTransports, number);
+        searchByTMR(seaTransports, number);
     }
 
 
-    public  <T> void removeByTMR(List<T> transports, String TMR) {
+    public  <T> void searchByTMR(List<T> transports, String number) {
         for (T obj : transports) {
             try {
                 Transport transport = (Transport)obj;
-                if (transport.getTMR().equals(TMR)){
+                if (transport.getFaxNumber().equals(number)){
+                    System.out.println(transport);
+                    return;
+                }
+            }
+            catch (Exception ex){}
+        }
+    }
+
+    public void changeExistingTransport(String numberOfFax) {
+        removeByFaxNumber(numberOfFax);
+    }
+
+    public void removeByFaxNumber(String faxNumber) {
+        removeByFaxNumber(landTransports, faxNumber);
+        removeByFaxNumber(airTransports, faxNumber);
+        removeByFaxNumber(railTransports, faxNumber);
+        removeByFaxNumber(seaTransports, faxNumber);
+    }
+
+
+    public  <T> void removeByFaxNumber(List<T> transports, String number) {
+        for (T obj : transports) {
+            try {
+                Transport transport = (Transport)obj;
+                if (transport.getFaxNumber().equals(number)){
                     int indexX = transports.indexOf(transport);
                     transports.remove(indexX);
                     return;

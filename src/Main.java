@@ -37,10 +37,34 @@ public class Main {
                     break;
                 case "2":
                     System.out.println("Please, enter the TMR Number:");
-                    String TMRToRemove = scan.nextLine();
-                    repo.removeByTMR(TMRToRemove);
+                    String faxToRemove = scan.nextLine();
+                    repo.removeByFaxNumber(faxToRemove);
                     break;
                 case "3":
+                    //Change existing transport
+                    System.out.println("Please, enter Fax Number:");
+                    String numberOfFax = scan.nextLine();
+                    repo.changeExistingTransport(numberOfFax);
+                    System.out.println("Please select one of the following options:");
+                    System.out.println("a Land transport");
+                    System.out.println("b Rail transport");
+                    System.out.println("c Air transport");
+                    System.out.println("d Sea/waterway transport");
+                    String transportToAdd = scan.nextLine();
+                    switch (transportToAdd) {
+                        case "a":
+                            repo.increaseLT();
+                            break;
+                        case "b":
+                            repo.increaseRT();
+                            break;
+                        case "c":
+                            repo.increaseAT();
+                            break;
+                        case "d":
+                            repo.increaseST();
+                            break;
+                    }
                     break;
                 case "4":
                     System.out.println("Please, enter the TMR Number:");
@@ -69,7 +93,6 @@ public class Main {
             }
         }
     }
-
 
     public static void menu() {
         System.out.println("Welcome to the NLCC Transport Data Base");
