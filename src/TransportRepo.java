@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class TransportRepo {
@@ -9,10 +10,6 @@ public class TransportRepo {
 
     public void increaseLT() {
         landTransports.add(addLandTransport());
-    }
-
-    public void increaseLT(LandTransport TransportL) {
-        landTransports.add(TransportL);
     }
 
     public void increaseRT() {
@@ -175,46 +172,53 @@ public class TransportRepo {
                 dateOfExit, cargo, personal, mission, note, faxNumber, TMR, shipType, shipName, hourOfEntry, hourOfExit, weight);
     }
 
-    public void searchByTMR(ArrayList<LandTransport> landTransports, String number) {
-//        landTransports.forEach(landTransport -> landTransport.getTMR().equals(number));
+    public void searchByTMR(String number) {
         for (LandTransport landTransport : landTransports) {
             if (number.equals(landTransport.getTMR())){
                 System.out.println(landTransport);
+                return;
             }
         }
-     }
-
-    public void removeByTMR(ArrayList<LandTransport> landTransports, String TMR) {
-        boolean isTrue = false;
-        for (LandTransport landTransport : landTransports) {
-            if (landTransport.getTMR().equals(TMR)){
-                int indexX = landTransports.indexOf(landTransport);
-                landTransports.remove(indexX);
-                isTrue = true;
-            }
-            if (isTrue){
-                break;
+        for (AirTransport airTransport : airTransports) {
+            if (number.equals(airTransport.getTMR())){
+                System.out.println(airTransport);
+                return;
             }
         }
-        if (!isTrue){
-            System.out.println("There is no such TMR");
+        for (RailTransport railTransport : railTransports) {
+            if (number.equals(railTransport.getTMR())){
+                System.out.println(railTransport);
+                return;
+            }
+        }
+        for (SeaAndWaterWayTransport seaAndWaterWayTransport : seaTransports) {
+            if (number.equals(seaAndWaterWayTransport.getTMR())){
+                System.out.println(seaAndWaterWayTransport);
+                return;
+            }
         }
     }
 
-    public void removeByFaxNumber(ArrayList<LandTransport> landTransports, String fn) {
-        boolean isTrue = false;
-        for (LandTransport landTransport : landTransports) {
-            if (landTransport.getFaxNumber().equals(fn)){
-                int indexX = landTransports.indexOf(landTransport);
-                landTransports.remove(indexX);
-                isTrue = true;
+    public void removeByTMR(String TMR) {
+        removeByTMR(landTransports, TMR);
+        removeByTMR(airTransports, TMR);
+        removeByTMR(railTransports, TMR);
+        removeByTMR(seaTransports, TMR);
+        System.out.println("There is no such TMR");
+    }
+
+
+    public  <T> void removeByTMR(List<T> transports, String TMR) {
+        for (T obj : transports) {
+            try {
+                Transport transport = (Transport)obj;
+                if (transport.getTMR().equals(TMR)){
+                    int indexX = transports.indexOf(transport);
+                    transports.remove(indexX);
+                    return;
+                }
             }
-            if (isTrue){
-                break;
-            }
-        }
-        if (!isTrue){
-            System.out.println("There is no such TMR");
+            catch (Exception ex){}
         }
     }
 
@@ -223,24 +227,6 @@ public class TransportRepo {
             if (faxNumber.equals(landTransport.getTMR())){
                 System.out.println(landTransport);
             }
-        }
-    }
-
-    public void changeFax(ArrayList<LandTransport> landTransports, String number) {
-      boolean isTrue = true;
-        for (LandTransport landTransport : landTransports) {
-            if (number.equals(landTransport.getFaxNumber())){
-//                int index = landTransports.indexOf(landTransport);
-                landTransports.remove(landTransport);
-                isTrue = false;
-                break;
-            }
-        }
-
-        if (!isTrue){
-            increaseLT();
-        }else {
-            System.out.println("There is no such fax number in land transports!!!");
         }
     }
 }
