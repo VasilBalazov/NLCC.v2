@@ -1,3 +1,5 @@
+import Model.Datasource;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -5,6 +7,16 @@ public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         TransportRepo repo = new TransportRepo();
+
+        // DATASOURCE CODE
+        Datasource datasource = new Datasource();
+        if (!datasource.open()){
+            System.out.println("Can't open datasource");
+            return;
+        }
+        datasource.createLandTransportTable();
+//        datasource.manualInsert();
+        datasource.close();
 
         boolean run = true;
         menu();
