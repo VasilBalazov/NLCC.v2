@@ -1,6 +1,6 @@
-package Model;
-
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Datasource {
     public static final String DB_NAME = "transports.db";
@@ -82,6 +82,29 @@ public class Datasource {
             System.out.println("insert successful");
         } catch (SQLException e){
             System.out.println("Manual insert has failed!" + e.getMessage());
+        }
+    }
+
+    public List<LandTransport> queryLandTransportsList (){
+
+
+        try (Statement statement = conn.createStatement();
+             ResultSet results = statement.executeQuery("SELECT * FROM " + TABLE_LAND_TRANSPORT)) {
+
+            List<LandTransport> landTransports = new  ArrayList<>();
+            while (results.next()){
+                LandTransport landTransport = new LandTransport(results.getString(COLUMN_START_POINT) ,results.getString(COLUMN_FINAL_POINT) ,results.getString(COLUMN_ENTRY_IN_BGR_POINT),
+                        results.getString(COLUMN_DATE_OF_ENTRY_IN_BGR),results.getString(COLUMN_EXIT_POINT_FROM_BGR),
+                        results.getString(COLUMN_DATE_OF_EXIT_FROM_BGR) ,results.getString(COLUMN_CARGO), results.getString(COLUMN_PERSONAL),
+                        results.getString(COLUMN_MISSION_TO_SUPPORT),results.getString(COLUMN_TYPE_OF_VEHICLES),results.getString(COLUMN_LICENSE_PLATE_NUMBERS),
+                        results.getString(COLUMN_LICENSE_PLATE_NUMBERS_OF_TRAILERS), results.getString(COLUMN_DRIVERS),results.getString(COLUMN_NOTE),
+                        results.getString(COLUMN_FAX_NUMBER),results.getString(COLUMN_TMR));
+                landTransports.add(landTransport);
+            }
+            return landTransports;
+        } catch (SQLException e){
+            System.out.println("Query failed: " + e.getMessage());
+            return null;
         }
     }
     public void close () {

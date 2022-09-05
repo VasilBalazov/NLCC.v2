@@ -1,6 +1,5 @@
-import Model.Datasource;
-
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -15,7 +14,21 @@ public class Main {
             return;
         }
         datasource.createLandTransportTable();
-//        datasource.manualInsert();
+        List<LandTransport> landTransportsFromDB = datasource.queryLandTransportsList();
+        if (landTransportsFromDB == null) {
+            System.out.println("No land transports!");
+            return;
+        }
+
+        for (LandTransport landTransport: landTransportsFromDB) {
+            System.out.printf("%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s.%n",
+                    landTransport.getStartPoint(), landTransport.getFinalDestination(), landTransport.getEntryPoint(),
+                    landTransport.getDateOfEntry(),landTransport.getExitPoint(), landTransport.getDateOfExit(),
+                    landTransport.getCargo(), landTransport.getPersonal(), landTransport.getMission(),
+                    landTransport.getNote(), landTransport.getFaxNumber(), landTransport.getTMR(), landTransport.getTypeOfVehicle(),
+                    landTransport.getLicensePlateNumber(), landTransport.getLicensePlateNumberTrailer(), landTransport.getDrivers());
+        }
+        //        datasource.manualInsert();
         datasource.close();
 
         boolean run = true;
