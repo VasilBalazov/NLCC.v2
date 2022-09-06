@@ -10,7 +10,7 @@ public class AirTransport extends Transport {
                         String exitPoint, String dateOfExit, String cargo, String personal, String mission,
                         String note, String faxNumber, String TMR, String planeType, String flightNumber,
                         String hourOfEntry, String hourOfExit) {
-        super(startPoint, finalDestination, entryPoint, dateOfEntry, exitPoint, dateOfExit, cargo, personal, mission, note, faxNumber, TMR);
+        super(startPoint, finalDestination, entryPoint, dateOfEntry, hourOfEntry, exitPoint, dateOfExit, hourOfExit, cargo, personal, mission, note, faxNumber, TMR);
         this.planeType = planeType;
         this.flightNumber = flightNumber;
         this.hourOfEntry = hourOfEntry;

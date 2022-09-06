@@ -11,7 +11,7 @@ public class SeaAndWaterWayTransport extends Transport{
                                    String exitPoint, String dateOfExit, String cargo, String personal, String mission,
                                    String note, String faxNumber, String TMR, String shipType, String shipName,
                                    String hourOfEntry, String hourOfExit, String weight) {
-        super(startPoint, finalDestination, entryPoint, dateOfEntry, exitPoint, dateOfExit,
+        super(startPoint, finalDestination, entryPoint, dateOfEntry, hourOfEntry, exitPoint, dateOfExit, hourOfExit,
                 cargo, personal, mission, note, faxNumber, TMR);
         this.shipType = shipType;
         this.shipName = shipName;

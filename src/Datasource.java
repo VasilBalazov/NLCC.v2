@@ -26,7 +26,25 @@ public class Datasource {
     public static final String COLUMN_NOTE = "note";
     public static final String COLUMN_FAX_NUMBER = "faxNumber";
     public static final String COLUMN_TMR = "transportMissionNumber";
-
+    public static final int INDEX_TRANSPORT_ID = 1;
+    public static final int INDEX_START_POINT = 2;
+    public static final int INDEX_FINAL_POINT = 3;
+    public static final int INDEX_ENTRY_IN_BGR_POINT = 4;
+    public static final int INDEX_DATE_OF_ENTRY_IN_BGR = 5;
+    public static final int INDEX_HOUR_OF_ENTRY_IN_BGR = 6;
+    public static final int INDEX_EXIT_POINT_FROM_BGR = 7;
+    public static final int INDEX_DATE_OF_EXIT_FROM_BGR = 8;
+    public static final int INDEX_HOUR_OF_EXIT_FROM_BGR = 9;
+    public static final int INDEX_CARGO = 10;
+    public static final int INDEX_PERSONAL = 11;
+    public static final int INDEX_MISSION_TO_SUPPORT = 12;
+    public static final int INDEX_TYPE_OF_VEHICLES = 13;
+    public static final int INDEX_LICENSE_PLATE_NUMBERS = 14;
+    public static final int INDEX_LICENSE_PLATE_NUMBERS_OF_TRAILERS = 15;
+    public static final int INDEX_DRIVERS = 16;
+    public static final int INDEX_NOTE = 17;
+    public static final int INDEX_FAX_NUMBER = 18;
+    public static final int INDEX_TMR = 19;
     private Connection conn;
 
     public boolean open(){
@@ -93,12 +111,12 @@ public class Datasource {
 
             List<LandTransport> landTransports = new  ArrayList<>();
             while (results.next()){
-                LandTransport landTransport = new LandTransport(results.getString(COLUMN_START_POINT) ,results.getString(COLUMN_FINAL_POINT) ,results.getString(COLUMN_ENTRY_IN_BGR_POINT),
-                        results.getString(COLUMN_DATE_OF_ENTRY_IN_BGR),results.getString(COLUMN_EXIT_POINT_FROM_BGR),
-                        results.getString(COLUMN_DATE_OF_EXIT_FROM_BGR) ,results.getString(COLUMN_CARGO), results.getString(COLUMN_PERSONAL),
-                        results.getString(COLUMN_MISSION_TO_SUPPORT),results.getString(COLUMN_TYPE_OF_VEHICLES),results.getString(COLUMN_LICENSE_PLATE_NUMBERS),
-                        results.getString(COLUMN_LICENSE_PLATE_NUMBERS_OF_TRAILERS), results.getString(COLUMN_DRIVERS),results.getString(COLUMN_NOTE),
-                        results.getString(COLUMN_FAX_NUMBER),results.getString(COLUMN_TMR));
+                LandTransport landTransport = new LandTransport(results.getString(INDEX_START_POINT) ,results.getString(INDEX_FINAL_POINT),
+                        results.getString(INDEX_ENTRY_IN_BGR_POINT), results.getString(INDEX_DATE_OF_ENTRY_IN_BGR), results.getString(INDEX_HOUR_OF_ENTRY_IN_BGR),
+                        results.getString(INDEX_EXIT_POINT_FROM_BGR), results.getString(INDEX_DATE_OF_EXIT_FROM_BGR), results.getString(INDEX_HOUR_OF_EXIT_FROM_BGR),
+                        results.getString(INDEX_CARGO), results.getString(INDEX_PERSONAL), results.getString(INDEX_MISSION_TO_SUPPORT),
+                        results.getString(INDEX_TYPE_OF_VEHICLES),results.getString(INDEX_LICENSE_PLATE_NUMBERS), results.getString(INDEX_LICENSE_PLATE_NUMBERS_OF_TRAILERS),
+                        results.getString(INDEX_DRIVERS),results.getString(INDEX_NOTE), results.getString(INDEX_FAX_NUMBER),results.getString(INDEX_TMR));
                 landTransports.add(landTransport);
             }
             return landTransports;

@@ -3,8 +3,10 @@ public abstract class Transport {
     String finalDestination;
     String entryPoint;
     String dateOfEntry;
+    String hourOfEntry;
     String exitPoint;
     String dateOfExit;
+    String hourOfExit;
     String cargo;
     String personal;
     String mission;
@@ -12,15 +14,17 @@ public abstract class Transport {
     String faxNumber;
     String TMR;
 
-    public Transport(String startPoint, String finalDestination, String entryPoint, String dateOfEntry, String exitPoint,
-                     String dateOfExit, String cargo, String personal, String mission,
+    public Transport(String startPoint, String finalDestination, String entryPoint, String dateOfEntry,String hourOfEntry, String exitPoint,
+                     String dateOfExit, String hourOfExit, String cargo, String personal, String mission,
                      String note, String faxNumber, String TMR) {
         this.setStartPoint(startPoint);
         this.setFinalDestination(finalDestination);
         this.setEntryPoint(entryPoint);
         this.setDateOfEntry(dateOfEntry);
+        this.setHourOfEntry(hourOfEntry);
         this.setExitPoint(exitPoint);
         this.setDateOfExit(dateOfExit);
+        this.setHourOfExit(hourOfExit);
         this.setCargo(cargo);
         this.setPersonal(personal);
         this.setMission(mission);
@@ -80,6 +84,21 @@ public abstract class Transport {
     }
 
 
+    public String getHourOfEntry() {
+        return hourOfEntry;
+    }
+
+    public void setHourOfEntry(String hourOfEntry) {
+        this.hourOfEntry = hourOfEntry;
+    }
+
+    public String getHourOfExit() {
+        return hourOfExit;
+    }
+
+    public void setHourOfExit(String hourOfExit) {
+        this.hourOfExit = hourOfExit;
+    }
 
     public void setStartPoint(String startPoint) {
         this.startPoint = startPoint;

@@ -2,10 +2,10 @@ import java.util.ArrayList;
 
 public class RailTransport extends Transport{
 
-    public RailTransport(String startPoint, String finalDestination, String entryPoint, String dateOfEntry,
-                         String exitPoint, String dateOfExit, String cargo, String personal, String mission,
+    public RailTransport(String startPoint, String finalDestination, String entryPoint, String dateOfEntry, String hourOfEntry,
+                         String exitPoint, String dateOfExit, String hourOfExit, String cargo, String personal, String mission,
                          String note, String faxNumber, String TMR) {
-        super(startPoint, finalDestination, entryPoint, dateOfEntry, exitPoint, dateOfExit,
+        super(startPoint, finalDestination, entryPoint, dateOfEntry, hourOfEntry, exitPoint, dateOfExit, hourOfExit,
                 cargo, personal, mission, note, faxNumber, TMR);
     }
 

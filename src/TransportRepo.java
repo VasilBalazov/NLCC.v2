@@ -34,10 +34,14 @@ public class TransportRepo {
         String entryPoint = scan.nextLine();
         System.out.print("Enter date of entry in Bulgaria: ");
         String dateOfEntry = scan.nextLine();
+        System.out.print("Enter hour of entry in Bulgaria: ");
+        String hourOfEntry = scan.nextLine();
         System.out.print("Enter BXP/final destination: ");
         String exitPoint = scan.nextLine();
         System.out.print("Enter day of border crossing/reaching final destination: ");
         String dateOfExit = scan.nextLine();
+        System.out.print("Enter hour of exit from Bulgaria: ");
+        String hourOfExit = scan.nextLine();
         System.out.print("Enter cargo: ");
         String cargo = scan.nextLine();
         System.out.print("Enter personal: ");
@@ -59,8 +63,8 @@ public class TransportRepo {
         System.out.print("Enter TMR: ");
         String TMR =scan.nextLine();
 
-        return new LandTransport(startingDestination, finalDestination, entryPoint, dateOfEntry,
-                exitPoint, dateOfExit, cargo, personal, mission, typeOfVehicle, licensePlateNumber,
+        return new LandTransport(startingDestination, finalDestination, entryPoint, dateOfEntry, hourOfEntry,
+                exitPoint, dateOfExit, hourOfExit, cargo, personal, mission, typeOfVehicle, licensePlateNumber,
                 licensePlateNumberTrailer, drivers, note, faxNumber, TMR);
     }
 
@@ -74,10 +78,14 @@ public class TransportRepo {
         String entryPoint = scan.nextLine();
         System.out.print("Enter date of entry in Bulgaria: ");
         String dateOfEntry = scan.nextLine();
+        System.out.print("Enter hour of entry in Bulgaria: ");
+        String hourOfEntry = scan.nextLine();
         System.out.print("Enter BXP/final destination: ");
         String exitPoint = scan.nextLine();
         System.out.print("Enter day of border crossing/reaching final destination: ");
         String dateOfExit = scan.nextLine();
+        System.out.print("Enter hour of exit from Bulgaria: ");
+        String hourOfExit = scan.nextLine();
         System.out.print("Enter cargo: ");
         String cargo = scan.nextLine();
         System.out.print("Enter personal: ");
@@ -90,8 +98,8 @@ public class TransportRepo {
         String faxNumber = scan.nextLine();
         System.out.print("Enter TMR: ");
         String TMR = scan.nextLine();
-        return new RailTransport(startingDestination, finalDestination, entryPoint, dateOfEntry,
-                exitPoint, dateOfExit, cargo, personal, mission, note, faxNumber, TMR);
+        return new RailTransport(startingDestination, finalDestination, entryPoint, dateOfEntry, hourOfEntry,
+                exitPoint, dateOfExit, hourOfExit, cargo, personal, mission, note, faxNumber, TMR);
     }
 
     public static AirTransport addAirTransport() {
