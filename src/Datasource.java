@@ -81,27 +81,26 @@ public class Datasource {
             sb.append(COLUMN_FAX_NUMBER + " TEXT, ");
             sb.append(COLUMN_TMR + " TEXT)");
             statement.execute(sb.toString());
-//            statement.close();
-//            conn.close();
+
         }catch (SQLException e){
             System.out.println("Something went wrong with creating land transport DB" + e.getMessage());
         }
     }
 
-    public void manualInsert (){
-        try (Statement statement = conn.createStatement()){
-            statement.execute("INSERT INTO " + TABLE_LAND_TRANSPORT + " (" + COLUMN_TRANSPORT_ID + ", " + COLUMN_START_POINT
-                    + ", " + COLUMN_FINAL_POINT + ", " + COLUMN_ENTRY_IN_BGR_POINT + ", " + COLUMN_DATE_OF_ENTRY_IN_BGR + ", " + COLUMN_HOUR_OF_ENTRY_IN_BGR
-                    + ", " + COLUMN_EXIT_POINT_FROM_BGR + ", " + COLUMN_DATE_OF_EXIT_FROM_BGR + ", " + COLUMN_HOUR_OF_EXIT_FROM_BGR
-                    + ", " + COLUMN_CARGO + ", " + COLUMN_PERSONAL + ", " + COLUMN_MISSION_TO_SUPPORT + ", " + COLUMN_TYPE_OF_VEHICLES + ", " + COLUMN_LICENSE_PLATE_NUMBERS
-                    + ", " + COLUMN_LICENSE_PLATE_NUMBERS_OF_TRAILERS + ", " + COLUMN_DRIVERS + ", " + COLUMN_NOTE + ", " + COLUMN_FAX_NUMBER + ", " + COLUMN_TMR +
-                    ") VALUES(" + "'6', 'Romania', 'Bulgaria', 'Ruse', '04-09-2022', '1300', 'Novo Selo', '06-09-2022', '1200', 'supplies', '4'," +
-                    "'support', 'car', 'dew22313', 'daa22231', '2', 'none', '260 005', 'rsr532')");
-            System.out.println("insert successful");
-        } catch (SQLException e){
-            System.out.println("Manual insert has failed!" + e.getMessage());
-        }
-    }
+//    public void manualInsert (){
+//        try (Statement statement = conn.createStatement()){
+//            statement.execute("INSERT INTO " + TABLE_LAND_TRANSPORT + " (" + COLUMN_TRANSPORT_ID + ", " + COLUMN_START_POINT
+//                    + ", " + COLUMN_FINAL_POINT + ", " + COLUMN_ENTRY_IN_BGR_POINT + ", " + COLUMN_DATE_OF_ENTRY_IN_BGR + ", " + COLUMN_HOUR_OF_ENTRY_IN_BGR
+//                    + ", " + COLUMN_EXIT_POINT_FROM_BGR + ", " + COLUMN_DATE_OF_EXIT_FROM_BGR + ", " + COLUMN_HOUR_OF_EXIT_FROM_BGR
+//                    + ", " + COLUMN_CARGO + ", " + COLUMN_PERSONAL + ", " + COLUMN_MISSION_TO_SUPPORT + ", " + COLUMN_TYPE_OF_VEHICLES + ", " + COLUMN_LICENSE_PLATE_NUMBERS
+//                    + ", " + COLUMN_LICENSE_PLATE_NUMBERS_OF_TRAILERS + ", " + COLUMN_DRIVERS + ", " + COLUMN_NOTE + ", " + COLUMN_FAX_NUMBER + ", " + COLUMN_TMR +
+//                    ") VALUES(" + "'6', 'Romania', 'Bulgaria', 'Ruse', '04-09-2022', '1300', 'Novo Selo', '06-09-2022', '1200', 'supplies', '4'," +
+//                    "'support', 'car', 'dew22313', 'daa22231', '2', 'none', '260 005', 'rsr532')");
+//            System.out.println("insert successful");
+//        } catch (SQLException e){
+//            System.out.println("Manual insert has failed!" + e.getMessage());
+//        }
+//    }
 
     public List<LandTransport> queryLandTransportsList (){
 
